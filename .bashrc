@@ -112,3 +112,14 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+### Find a file in current path recrusively
+
+iFind(){
+    CURRENT_DIR=${pwd}    
+    FILE_EXT=$1
+    SEARCH_KEY=$2
+
+    find ./ -type f -name "*.$FILE_EXT" -exec grep -Hn $SEARCH_KEY {} \;
+}
