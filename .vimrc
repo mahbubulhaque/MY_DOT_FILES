@@ -56,7 +56,7 @@ set noswapfile
  syntax enable
  set background=dark
  colorscheme bluedrake 
- set listchars=tab:â–¸\ ,eol:Â¬,trail:~,extends:>,precedes:<,nbsp:â£
+ set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<,nbsp:␣
  set list
 
 " Invisible character colors 
