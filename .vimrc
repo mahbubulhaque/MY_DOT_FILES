@@ -56,7 +56,7 @@ set noswapfile
  syntax enable
  set background=dark
  colorscheme bluedrake 
- set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<,nbsp:␣
+ set listchars=tab:â–¸\ ,eol:Â¬,trail:~,extends:>,precedes:<,nbsp:â£
  set list
 
 " Invisible character colors 
@@ -92,6 +92,7 @@ set noswapfile
 
 " ---------- for opoening ctrlp with buffer directly
  nnoremap <c-b> :CtrlPBuffer<cr>
+ nnoremap <c-m> :CtrlPMRU<cr>
 
 " ---------- for coloring nerdTree different file extensions ----------
 " NERDTress File highlighting
@@ -213,4 +214,8 @@ set noswapfile
  iabbrev fac factory
 
  autocmd FileType javascript nnoremap <buffer><localleader>c I// <esc>
+" highlight Comment gui=italic
+" highlight Comment cterm=italic
+" highlight htmlArg gui=italic
+" highlight htmlArg cterm=italic
 " --------------- EXPERIMENTAL MAPPING ENDS --------------
