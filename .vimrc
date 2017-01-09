@@ -56,7 +56,8 @@ set noswapfile
  syntax enable
  set background=dark
  colorscheme bluedrake 
- set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<,nbsp:␣
+" set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<,nbsp:␣
+ set listchars=tab:»·,eol:¬,trail:~,nbsp:·
  set list
 
 " Invisible character colors 
@@ -92,6 +93,7 @@ set noswapfile
 
 " ---------- for opoening ctrlp with buffer directly
  nnoremap <c-b> :CtrlPBuffer<cr>
+ nnoremap <c-m> :CtrlPMRU<cr>
 
 " ---------- for coloring nerdTree different file extensions ----------
 " NERDTress File highlighting
@@ -206,11 +208,47 @@ set noswapfile
  inoremap jk <esc>
 " inoremap <esc> <nop>
  nnoremap <leader>u viwU<esc>
- nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+" nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+" -------------- quote and unquote ------------------------
+ nnoremap <Leader>" ciw""<esc>hp
+ nnoremap <Leader>' ciw''<esc>hp
+" delete quote doesn't work for all cases, need to optimize
+ nnoremap <Leader>'d daW"=substitute(@@,"'\\\|\"","","g")<cr>p
 
  iabbrev ctrl controller
  iabbrev dir directive
  iabbrev fac factory
+" --------------- Quicker window switch -------------------
+ nnoremap <c-j> <c-w>j
+ nnoremap <c-k> <c-w>k
+ nnoremap <c-h> <c-w>h
+ nnoremap <c-l> <c-w>l
+" -------------- Quicker window movement ------------------
+ nnoremap <c-j><c-j> <c-w>J
+ nnoremap <c-k><c-k> <c-w>K
+ nnoremap <c-h><c-h> <c-w>H
+ nnoremap <c-l><c-l> <c-w>L
+
+" <c-h> is interpreted as <bs> in neovim
+" This is a bandaid fix until the team decides how
+" they want to handle fixing
+" it...(https://github.com/neovim/neovim/issues/2048)
+
+" --------------- Saving file -----------------------------
+" --------------- Map Ctrl + s to save in any mode --------
+" following <c-s> won't work untill .zshrc is updated with 
+" 'stty -ixon' command, as terminal has its own <c-s> command
+ noremap <silent> <c-s>          :update<cr>
+ vnoremap <silent> <c-s>         <c-c>:update<cr>
+ inoremap <silent> <c-s>         <c-o>:update<cr>
+" Also map leader + s
+ map <leader>s <c-s>
+"  noremap <c-s> :w<cr>
+
 
  autocmd FileType javascript nnoremap <buffer><localleader>c I// <esc>
+" highlight Comment gui=italic
+" highlight Comment cterm=italic
+" highlight htmlArg gui=italic
+" highlight htmlArg cterm=italic
 " --------------- EXPERIMENTAL MAPPING ENDS --------------
