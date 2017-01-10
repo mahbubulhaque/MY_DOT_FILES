@@ -228,12 +228,15 @@ set noswapfile
  nnoremap <c-k><c-k> <c-w>K
  nnoremap <c-h><c-h> <c-w>H
  nnoremap <c-l><c-l> <c-w>L
-
 " <c-h> is interpreted as <bs> in neovim
 " This is a bandaid fix until the team decides how
 " they want to handle fixing
 " it...(https://github.com/neovim/neovim/issues/2048)
-
+" --------------- Resize window ---------------------------
+nnoremap <silent> <Right> :vertical resize +5<cr>
+nnoremap <silent> <Left> :vertical resize -5<cr>
+nnoremap <silent> <Up> :resize +5<cr>
+nnoremap <silent> <Down> :resize -5<cr>
 " --------------- Saving file -----------------------------
 " --------------- Map Ctrl + s to save in any mode --------
 " following <c-s> won't work untill .zshrc is updated with 
