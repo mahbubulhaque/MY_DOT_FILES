@@ -52,6 +52,7 @@ set noswapfile
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
+
 " ---------------- Put your non-Plugin stuff after this line ------------
  syntax enable
  set background=dark
@@ -59,6 +60,19 @@ set noswapfile
 " set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<,nbsp:␣
  set listchars=tab:»·,eol:¬,trail:~,nbsp:·
  set list
+
+"==========================:doing without plugin:start:=======================
+" Search down into sub folders
+" provide tab-completion for all file related tasks
+ set path+=**
+ 
+" Display all matching files when we tab complete
+ set wildmenu
+
+" TAG JUMPING:
+" create the 'tags' file (may need to install ctags first)
+ command! MakeTags !ctags -R .
+"==========================:doing without plugin:ends:=======================
 
 " Invisible character colors 
 " following 2 color specification is ignored as it is coming from colorscheme
@@ -209,6 +223,7 @@ set noswapfile
 " inoremap <esc> <nop>
  nnoremap <leader>u viwU<esc>
 " nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+
 " -------------- quote and unquote ------------------------
  nnoremap <Leader>" ciw""<esc>hp
  nnoremap <Leader>' ciw''<esc>hp
@@ -218,6 +233,7 @@ set noswapfile
  iabbrev ctrl controller
  iabbrev dir directive
  iabbrev fac factory
+
 " --------------- Quicker window switch -------------------
  nnoremap <c-j> <c-w>j
  nnoremap <c-k> <c-w>k
@@ -228,15 +244,27 @@ set noswapfile
  nnoremap <c-k><c-k> <c-w>K
  nnoremap <c-h><c-h> <c-w>H
  nnoremap <c-l><c-l> <c-w>L
+" -------------- Quicker tab switch -----------------------
+ nnoremap <leader>1 1gt
+ nnoremap <leader>2 2gt
+ nnoremap <leader>3 3gt
+ nnoremap <leader>4 4gt
+ nnoremap <leader>5 5gt
+ nnoremap <c-6> 6gt
+ nnoremap <c-7> 7gt
+ nnoremap <c-8> 1gt
+ nnoremap <c-9> 1gt
 " <c-h> is interpreted as <bs> in neovim
 " This is a bandaid fix until the team decides how
 " they want to handle fixing
 " it...(https://github.com/neovim/neovim/issues/2048)
-" --------------- Resize window ---------------------------
-nnoremap <silent> <Right> :vertical resize +5<cr>
-nnoremap <silent> <Left> :vertical resize -5<cr>
-nnoremap <silent> <Up> :resize +5<cr>
-nnoremap <silent> <Down> :resize -5<cr>
+
+" --------------- Resize Window ---------------------------
+ nnoremap <silent> <Right> :vertical resize +5<cr>
+ nnoremap <silent> <Left> :vertical resize -5<cr>
+ nnoremap <silent> <Up> :resize +5<cr>
+ nnoremap <silent> <Down> :resize -5<cr>
+
 " --------------- Saving file -----------------------------
 " --------------- Map Ctrl + s to save in any mode --------
 " following <c-s> won't work untill .zshrc is updated with 
