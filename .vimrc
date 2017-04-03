@@ -250,11 +250,12 @@ set noswapfile
  nnoremap <leader>3 3gt
  nnoremap <leader>4 4gt
  nnoremap <leader>5 5gt
- nnoremap <c-6> 6gt
- nnoremap <c-7> 7gt
- nnoremap <c-8> 1gt
- nnoremap <c-9> 1gt
-" <c-h> is interpreted as <bs> in neovim
+ nnoremap <leader>6 6gt
+ nnoremap <leader>7 7gt
+ nnoremap <leader>8 8gt
+ nnoremap <leader>9 9gt
+
+ " <c-h> is interpreted as <bs> in neovim
 " This is a bandaid fix until the team decides how
 " they want to handle fixing
 " it...(https://github.com/neovim/neovim/issues/2048)
@@ -276,6 +277,9 @@ set noswapfile
  map <leader>s <c-s>
 "  noremap <c-s> :w<cr>
 
+" -------------- comment/uncomment visually selected block --
+ vnoremap <leader>c <c-v>I// <esc>
+ vnoremap <leader>cc <c-v>lld<esc>
 
  autocmd FileType javascript nnoremap <buffer><localleader>c I// <esc>
 " highlight Comment gui=italic
