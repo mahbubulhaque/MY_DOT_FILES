@@ -286,4 +286,5 @@ set noswapfile
 " highlight Comment cterm=italic
 " highlight htmlArg gui=italic
 " highlight htmlArg cterm=italic
+" testing ssh key added correctly or not at binate
 " --------------- EXPERIMENTAL MAPPING ENDS --------------
