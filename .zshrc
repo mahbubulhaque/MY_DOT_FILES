@@ -80,3 +80,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 export CATALINA_HOME=/opt/tomcat
+
+### Find a file in current path recrusively
+
+iFind(){
+    CURRENT_DIR=${pwd}    
+    FILE_EXT=$1
+    SEARCH_KEY=$2
+
+    find ./ -type f -name "*.$FILE_EXT" -exec grep -Hn $SEARCH_KEY {} \;
+}
