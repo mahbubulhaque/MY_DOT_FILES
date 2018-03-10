@@ -1,14 +1,20 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/home/mahbubul/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/user/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="ys"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -47,12 +53,11 @@ ZSH_THEME="ys"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -78,15 +83,30 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-export CATALINA_HOME=/opt/tomcat
+
+#----------------------------- aliases strarts --------------------------
+alias ss="source ~/.zshrc"
+alias es="vim ~/.zshrc"
+alias w="cd workspace"
+alias ws="echo $SHELL"
+alias wst="echo $ZSH_THEME"
 
 ### Find a file in current path recrusively
-
 iFind(){
-    CURRENT_DIR=${pwd}    
+    CURRENT_DIR=${pwd} 
     FILE_EXT=$1
     SEARCH_KEY=$2
 
     find ./ -type f -name "*.$FILE_EXT" -exec grep -Hn $SEARCH_KEY {} \;
 }
+#----------------------------- aliases ends --------------------------
+#-------- virtualenvwrapper config starts ----------
+# export WORKON_HOME="$HOME/.python-virtualenv"
+# source $HOME/bin/virtualenvwrapper_bashrc
+# where to store our virtual envs
+ export WORKON_HOME=$HOME/.python-virtualenv
+# # where projects will reside
+ export PROJECT_HOME=$HOME/workspace
+# # where is the virtualenvwrapper.sh
+ source /usr/local/bin/virtualenvwrapper.sh
+#-------- virtualenvwrapper config ends ----------
