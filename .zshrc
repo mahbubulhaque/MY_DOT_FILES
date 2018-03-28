@@ -100,13 +100,14 @@ iFind(){
     find ./ -type f -name "*.$FILE_EXT" -exec grep -Hn $SEARCH_KEY {} \;
 }
 #----------------------------- aliases ends --------------------------
+
 #-------- virtualenvwrapper config starts ----------
-# export WORKON_HOME="$HOME/.python-virtualenv"
-# source $HOME/bin/virtualenvwrapper_bashrc
+
 # where to store our virtual envs
  export WORKON_HOME=$HOME/.python-virtualenv
 # # where projects will reside
  export PROJECT_HOME=$HOME/workspace
 # # where is the virtualenvwrapper.sh
  source /usr/local/bin/virtualenvwrapper.sh
+
 #-------- virtualenvwrapper config ends ----------
