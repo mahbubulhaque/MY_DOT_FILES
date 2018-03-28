@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 #----------------------------- aliases strarts --------------------------
 alias ss="source ~/.zshrc"
 alias es="vim ~/.zshrc"
-alias w="cd workspace"
+alias w="cd ~/workspace"
 alias ws="echo $SHELL"
 alias wst="echo $ZSH_THEME"
 
