@@ -34,8 +34,11 @@ set noswapfile
  Plugin 'vim-airline/vim-airline'
  Plugin 'vim-airline/vim-airline-themes'
  Plugin 'majutsushi/tagbar' 
+ Plugin 'leafgarland/typescript-vim'
 
 " All of your Plugins must be added before the following line
+"=====================================================================
+
  call vundle#end()            " required
  filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -44,6 +47,7 @@ set noswapfile
  set tabstop=4          " show existing tab with 4 spaces width
  set shiftwidth=4       " when indenting with '>', use 4 spaces width
  set expandtab          " On pressing tab, insert 4 spaces
+" set autoread           " auto reload file if modified outside
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -54,12 +58,24 @@ set noswapfile
 " see :h vundle for more details or wiki for FAQ
 
 " ---------------- Put your non-Plugin stuff after this line ------------
+"============================================================================
+"============================================================================
  syntax enable
  set background=dark
- colorscheme bluedrake 
+" colorscheme bluedrake 
+ colorscheme desert 
 " set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<,nbsp:␣
  set listchars=tab:»·,eol:¬,trail:~,nbsp:·
  set list
+
+"==========================: for typesript starts :===========================
+"------: for using youcompleteme to have omni-completion automatically -------
+"------: so that . gives the code completion shown --------
+    if !exists("g:ycm_semantic_triggers")
+        let g:ycm_semantic_triggers = {}
+    endif
+        let g:ycm_semantic_triggers['typescript'] = ['.']
+"==========================: for typesript ends :=============================
 
 "==========================:doing without plugin:start:=======================
 " Search down into sub folders
@@ -222,6 +238,7 @@ set noswapfile
  inoremap jk <esc>
 " inoremap <esc> <nop>
  nnoremap <leader>u viwU<esc>
+ nnoremap <leader>l viwu<esc>
 " nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
 " -------------- quote and unquote ------------------------
@@ -281,6 +298,9 @@ set noswapfile
  vnoremap <leader>c <c-v>I// <esc>
  vnoremap <leader>cc <c-v>lld<esc>
 
+" -------------- comment/uncomment visually selected block --
+ nnoremap <leader>ii gg=G`z
+ map <F7> mzgg=G`z
  autocmd FileType javascript nnoremap <buffer><localleader>c I// <esc>
 " highlight Comment gui=italic
 " highlight Comment cterm=italic

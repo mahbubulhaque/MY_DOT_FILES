@@ -2,7 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/user/.oh-my-zsh
+#  export ZSH=/home/user/.oh-my-zsh
+export ZSH="/home/mahbub/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -90,6 +91,7 @@ alias es="vim ~/.zshrc"
 alias w="cd ~/workspace"
 alias ws="echo $SHELL"
 alias wst="echo $ZSH_THEME"
+alias javahome="echo $JAVA_HOME"
 
 ### Find a file in current path recrusively
 iFind(){
@@ -104,10 +106,14 @@ iFind(){
 #-------- virtualenvwrapper config starts ----------
 
 # where to store our virtual envs
- export WORKON_HOME=$HOME/.python-virtualenv
+# export WORKON_HOME=$HOME/.python-virtualenv
 # # where projects will reside
- export PROJECT_HOME=$HOME/workspace
+# export PROJECT_HOME=$HOME/workspace
 # # where is the virtualenvwrapper.sh
- source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
 
 #-------- virtualenvwrapper config ends ----------
+
+#export GDAL_LIBRARY_PATH='/usr/lib/libgdal.so.1.18.3'
+#export GDAL_LIBRARY_PATH='/usr/local/lib/libgdal.so'
+#export GEOS_LIBRARY_PATH='/usr/local/lib/libgeos_c.so'
