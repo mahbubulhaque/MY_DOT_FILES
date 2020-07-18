@@ -19,7 +19,8 @@ set noswapfile
  Plugin 'airblade/vim-gitgutter'
  Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
  Plugin 'markdownFootnotes'
- Plugin 'The-NERD-tree'
+" Plugin 'The-NERD-tree'
+ Plugin 'scrooloose/nerdtree'
  Plugin 'Xuyuanp/nerdtree-git-plugin'
  Bundle "myusuf3/numbers.vim"
  Plugin 'jelera/vim-javascript-syntax'
