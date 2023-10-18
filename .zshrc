@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 #  export ZSH=/home/user/.oh-my-zsh
-export ZSH="/home/mahbub/.oh-my-zsh"
+export ZSH="/home/mahbubul/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -89,6 +89,8 @@ source $ZSH/oh-my-zsh.sh
 alias ss="source ~/.zshrc"
 alias es="vim ~/.zshrc"
 alias w="cd ~/workspace"
+alias wif="cd ~/workspace/impromptu-fe"
+alias wiw="cd ~/workspace/impromptu-widget"
 alias ws="echo $SHELL"
 alias wst="echo $ZSH_THEME"
 alias javahome="echo $JAVA_HOME"
