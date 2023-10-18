@@ -88,6 +88,8 @@ source $ZSH/oh-my-zsh.sh
 #----------------------------- aliases strarts --------------------------
 alias ss="source ~/.zshrc"
 alias es="vim ~/.zshrc"
+alias ev="vim ~/.vimrc"
+alias sv="source ~/.vimrc"
 alias w="cd ~/workspace"
 alias wif="cd ~/workspace/impromptu-fe"
 alias wdf="cd ~/workspace/MY_DOT_FILES"
