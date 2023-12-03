@@ -26,6 +26,7 @@ set noswapfile
  Plugin 'jelera/vim-javascript-syntax'
  Plugin 'pangloss/vim-javascript'
  Plugin 'flazz/vim-colorschemes'
+ Plugin 'lifepillar/vim-solarized8'
  Plugin 'othree/javascript-libraries-syntax.vim'
  Plugin 'burnettk/vim-angular'
 " Plugin 'Valloric/YouCompleteMe'
@@ -35,7 +36,7 @@ set noswapfile
  Plugin 'scrooloose/syntastic'
  Plugin 'vim-airline/vim-airline'
  Plugin 'vim-airline/vim-airline-themes'
- Plugin 'majutsushi/tagbar' 
+ Plugin 'majutsushi/tagbar'
  Plugin 'leafgarland/typescript-vim'
 
 " All of your Plugins must be added before the following line
@@ -64,8 +65,9 @@ set noswapfile
 "============================================================================
  syntax enable
  set background=dark
-" colorscheme bluedrake 
- colorscheme desert 
+" colorscheme bluedrake
+" colorscheme desert
+ colorscheme solarized8_dark
 " set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<,nbsp:␣
  set listchars=tab:»·,eol:¬,trail:~,nbsp:·
  set list
@@ -83,7 +85,7 @@ set noswapfile
 " Search down into sub folders
 " provide tab-completion for all file related tasks
  set path+=**
- 
+
 " Display all matching files when we tab complete
  set wildmenu
 
@@ -92,7 +94,7 @@ set noswapfile
  command! MakeTags !ctags -R .
 "==========================:doing without plugin:ends:=======================
 
-" Invisible character colors 
+" Invisible character colors
 " following 2 color specification is ignored as it is coming from colorscheme
 " we are using
  highlight NonText guifg=#4a4a59
@@ -114,7 +116,7 @@ set noswapfile
 
 " set cursorline     " highlight the current line
 " set cursorcolumn
- highlight CursorLine ctermbg=darkgray 
+ highlight CursorLine ctermbg=darkgray
 
  set hlsearch       " highlight searched text
  set ignorecase     " case insensitive searching (unless specified)
@@ -133,7 +135,7 @@ set noswapfile
    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='.a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'.a:extension .'$#'
   endfunction
- 
+
     call NERDTreeHighlightFile('js', 'green', 'none', 'green', '#151515')
     call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
     call NERDTreeHighlightFile('html', 'blue', 'none', '#3366FF', '#151515')
@@ -147,7 +149,7 @@ set noswapfile
     call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
     call NERDTreeHighlightFile('jade', 'Red', 'none', '#ffa500', '#151515')
     call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff','#151515')
- 
+
 " ---------- for enabling folding -------------------------------------
  set foldmethod=indent
  set foldlevel=99
@@ -161,7 +163,7 @@ set noswapfile
 " au BufWinLeave * mkview
 " au BufWinEnter * silent loadview
  autocmd BufWinLeave *.* mkview
- autocmd BufWinEnter *.* silent loadview 
+ autocmd BufWinEnter *.* silent loadview
 
 " ----------- for coloring tab bar -----------------------------------
  hi TabLineFill term=bold cterm=bold ctermbg=0
@@ -187,10 +189,10 @@ set noswapfile
  nnoremap <leader>lb :b#<cr>
 " ----------- ctrlp plugin ignoring directories ---------------------
  let g:ctrlp_custom_ignore = {
-   \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|bower_components|vendors|env|static\/build|static\/bower', 
- 	\ 'file': '\v\.(exe|so|dll|pyc)$', 
- 	\ 'link': 'some_bad_symbolic_links', 
- 	\ } 
+   \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules|bower_components|vendors|env|static\/build|static\/bower',
+    \ 'file': '\v\.(exe|so|dll|pyc)$',
+    \ 'link': 'some_bad_symbolic_links',
+    \ }
 
 " ---------------- This the syntastic plugin configuration --------------
  set statusline+=%#warningmsg#
@@ -204,6 +206,10 @@ set noswapfile
  let g:syntastic_javascript_checkers = ['eslint']
 
 " --------------- This is the airline plugin configurarion --------------
+" sets airline theme
+ let g:airline_theme='solarized_flood'
+ let g:airline_solarized_bg='dark'
+
  let g:airline_powerline_fonts = 1
  set t_Co=256
 
@@ -222,6 +228,7 @@ set noswapfile
  nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " save execute ~/.vimrc file as Vimscript
  nnoremap <leader>sv :source $MYVIMRC<cr>
+
 "  let the terminal send its keycode to Vim
 " set <S-Enter>={C-v}{S-Enter}
 " set <A-j>={C-v}{A-j}
@@ -229,15 +236,24 @@ set noswapfile
 " --move line down: <A-j>
 " nmap <C-V><alt-j> ddp
 " --move line up: <A-k>
-" nmap <C-V><alt-k> ddkp
+" nmap <C-V><alt-k> ddkkp
 " --insert newline after current line:
 " nmap <enter> o<esc>
 " --insert newline before current line: <s-enter>
 " nmap ^[0M O<esc>
 
+"------------------ move line up and down ----------------------
+ nnoremap <A-j> :m .+1<CR>==
+ nnoremap <A-k> :m .-2<CR>==
+ inoremap <A-j> <Esc>:m .+1<CR>==gi
+ inoremap <A-k> <Esc>:m .-2<CR>==gi
+ vnoremap <A-j> :m '>+1<CR>gv=gv
+ vnoremap <A-k> :m '<-2<CR>gv=gv
+
  inoremap <leader>d> <esc>ddi
  inoremap <leader>u <esc>viwU<esc>i
  inoremap jk <esc>
+ vnoremap jk <esc>
 " inoremap <esc> <nop>
  nnoremap <leader>u viwU<esc>
  nnoremap <leader>l viwu<esc>
@@ -282,12 +298,12 @@ set noswapfile
 " --------------- Resize Window ---------------------------
  nnoremap <silent> <Right> :vertical resize +5<cr>
  nnoremap <silent> <Left> :vertical resize -5<cr>
- nnoremap <silent> <Up> :resize +5<cr>
- nnoremap <silent> <Down> :resize -5<cr>
+ nnoremap <silent> <Up> :resize -5<cr>
+ nnoremap <silent> <Down> :resize +5<cr>
 
 " --------------- Saving file -----------------------------
 " --------------- Map Ctrl + s to save in any mode --------
-" following <c-s> won't work untill .zshrc is updated with 
+" following <c-s> won't work untill .zshrc is updated with
 " 'stty -ixon' command, as terminal has its own <c-s> command
  noremap <silent> <c-s>          :update<cr>
  vnoremap <silent> <c-s>         <c-c>:update<cr>
