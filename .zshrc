@@ -94,9 +94,12 @@ alias w="cd ~/workspace"
 alias wif="cd ~/workspace/impromptu-fe"
 alias wdf="cd ~/workspace/MY_DOT_FILES"
 alias wiw="cd ~/workspace/impromptu-widget"
+alias wiz="cd ~/workspace/zebraweb-mobile"
+alias wds="cd ~/workspace/ds-mobile-app"
 alias ws="echo $SHELL"
 alias wst="echo $ZSH_THEME"
 alias javahome="echo $JAVA_HOME"
+alias androidhome="echo $ANDROID_HOME"
 
 ### Find a file in current path recrusively
 iFind(){
