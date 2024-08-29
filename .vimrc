@@ -1,5 +1,7 @@
  set nocompatible              " be iMproved, required
+ set history=1000              " stores the vim commands history
  filetype off                  " required
+ set clipboard=unnamedplus     " for copy to clipboard using + register:: need to install vim-gtk3
 " scriptencoding utf-8
 " set encoding=utf-8
 
@@ -38,6 +40,7 @@ set noswapfile
  Plugin 'vim-airline/vim-airline-themes'
  Plugin 'majutsushi/tagbar'
  Plugin 'leafgarland/typescript-vim'
+ Plugin 'easymotion/vim-easymotion'
 
 " All of your Plugins must be added before the following line
 "=====================================================================
@@ -327,3 +330,19 @@ set noswapfile
 " testing ssh key added correctly or not at binate
 " another testing
 " --------------- EXPERIMENTAL MAPPING ENDS --------------
+" --------------- SOME USES OF VIM: starts--------------
+" double backtick `` will switch between last and current cursor position
+" Ctrl+i and Ctrl+o(old) jump cursor position forward and backword
+" g; and g, will move to last editing position backword and forward
+" :changes shows the list of all changes
+" :history shows all list of commands
+" :buffers shows all list of buffer files
+" :norm executes normal mode commands for selected lines
+" Ctrl+v verrical visual mode
+" o for switching  selection direction on vertical visual mode
+" qa: where a is the register and q starts recording and q stops recording; and @a executes recording
+" list.get(-7); Ctrl+a and Ctrl+x
+" W vs w: w is word and W is word until next whitespace
+" xp Xp: swaps characters forwad and backword
+{{"hellow1", "world"}, {"hellow22", "world"}, {"hellow23", "world"}}
+" --------------- SOME USES OF VIM: ends--------------

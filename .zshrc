@@ -96,6 +96,9 @@ alias wdf="cd ~/workspace/MY_DOT_FILES"
 alias wiw="cd ~/workspace/impromptu-widget"
 alias wiz="cd ~/workspace/zebraweb-mobile"
 alias wds="cd ~/workspace/ds-mobile-app"
+alias wfr="cd ~/workspace/formreleaf-app"
+alias asbin="cd /usr/local/android-studio/bin"
+alias assdk="cd /home/mahbubul/Android/Sdk/platform-tools"
 alias ws="echo $SHELL"
 alias wst="echo $ZSH_THEME"
 alias javahome="echo $JAVA_HOME"
@@ -125,3 +128,17 @@ iFind(){
 #export GDAL_LIBRARY_PATH='/usr/lib/libgdal.so.1.18.3'
 #export GDAL_LIBRARY_PATH='/usr/local/lib/libgdal.so'
 #export GEOS_LIBRARY_PATH='/usr/local/lib/libgeos_c.so'
+
+#-------- ANDROID_HOME environment variable config starts ----------
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+#-------- ANDROID_HOME environment variable config ends ----------
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
